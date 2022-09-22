@@ -12,10 +12,12 @@ from flask_gravatar import Gravatar
 from datetime import datetime
 import os
 
+
 year = datetime.now().year
 
+
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY",  "8BYkEfBA6O6donzWlSihBXox7C0sKR6b")
+app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 ckeditor = CKEditor(app)
 Bootstrap(app)
 gravatar = Gravatar(app, size=100, rating='g', default='retro', force_default=False, force_lower=False, use_ssl=False, base_url=None)
@@ -225,4 +227,4 @@ def delete_post(post_id):
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
